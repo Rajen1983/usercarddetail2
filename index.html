@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Define your CSS styles here */
+        #main_bus {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .bus {
+            width: auto;
+            height: 450px;
+            border: 2px solid gray;
+            text-align: center;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .bus img {
+            margin-top: 10px;
+            height: 50%;
+            width: 70%;
+            border: 2px solid rgb(166, 239, 174);
+            border-radius: 10px;
+        }
+
+        .bus button {
+            width: 100px;
+            height: 30px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(64, 220, 64);
+        }
+
+        h1, p {
+            color: rgb(41, 103, 235);
+            margin: 5px;
+        }
+
+        p:hover, h1:hover, a:hover, button:hover {
+            color: rgb(232, 31, 118);
+        }
+
+        button:hover {
+            color: yellow;
+        }
+
+        @media screen and (min-width: 260px) and (max-width: 480px) {
+            #main_bus {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .bus {
+                height: 480px;
+            }
+        }
+
+        @media screen and (min-width: 490px) and (max-width: 880px) {
+            #main_bus {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bus {
+                height: 400px;
+            }
+        }
+
+        .bus img {
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_bus"></div>
+
+    <script>
+        const busData = [
+            {
+                imageSrc: "https://neurosciencenews.com/files/2023/05/happiness-timing-neurosicenec.jpg",
+                title: "Smile",
+                detail: "Typically, happiness is an emotional state characterized by feelings of joy, satisfaction, contentment, and fulfillment. While happiness has many different definitions, it is often described as involving positive emotions and life satisfaction."
+            },
+            {
+                imageSrc: "https://img.freepik.com/premium-photo/portrait-happy-indian-asian-young-family-while-sitting-sofa-lying-floor-sitting-against-wall_466689-7314.jpg",
+                title: "Family",
+                detail: "A family is a group of two or more persons related by birth, marriage, or adoption who live together; all such related persons are considered as members of one family."
+            },
+            {
+                imageSrc: "https://www.shutterstock.com/image-photo/three-friends-drinking-beer-600nw-271332911.jpg",
+                title: "Friend",
+                detail: "a person that you know and like (not a member of your family), and who likes you"
+            },
+            {
+                imageSrc: "https://www.punjabkesari.com/wp-content/uploads/2024/02/tension.jpg",
+                title: "Tension",
+                detail: "alwaysthe condition of not being able to relax because you are worried or nervous"
+            },
+            {
+                imageSrc: "https://static2.bigstockphoto.com/4/5/6/large2/65440327.jpg",
+                title: "Good luck",
+                detail: "used to express wishes for success."
+            },
+            {
+                imageSrc: "https://markmanson.net/wp-content/uploads/2023/08/how-to-be-successful-in-life-cover.png",
+                title: "Success",
+                detail: "the fact that you have achieved what you want; doing well and becoming famous, rich, etc."
+            },
+            {
+                imageSrc: "https://cdn.mos.cms.futurecdn.net/9meMCxtJU3NWkh5YcPs7qG.jpg",
+                title: "Time",
+                detail: "Time is the continued sequence of existence and events that occurs in an apparently irreversible succession from the past, through the present, and into the future."
+            },
+            {
+                imageSrc: "https://img.freepik.com/free-photo/job-hiring-vacancy-team-interview-career-recruiting_53876-121268.jpg",
+                title: "Jobs",
+                detail: "A job is any legal activity that allows an individual to perform a service and in return earn credits they can use to buy things."
+            }
+        ];
+
+        const mainBus = document.getElementById("main_bus");
+
+        busData.forEach(bus => {
+            const busDiv = document.createElement("div");
+            busDiv.classList.add("bus");
+
+            const image = document.createElement("img");
+            image.src = bus.imageSrc;
+            image.alt = bus.title;
+            busDiv.appendChild(image);
+
+            const title = document.createElement("h1");
+            title.innerText = bus.title;
+            busDiv.appendChild(title);
+
+            const detail = document.createElement("p");
+            detail.innerText = bus.detail;
+            busDiv.appendChild(detail);
+
+            const buyButton = document.createElement("button");
+            buyButton.innerText = "BUY";
+            // Add event listener for button click if needed
+            busDiv.appendChild(buyButton);
+
+            mainBus.appendChild(busDiv);
+        });
+    </script>
+</body>
+</html>
